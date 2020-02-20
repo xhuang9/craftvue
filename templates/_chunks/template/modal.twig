@@ -1,0 +1,88 @@
+<button id="show-modal" @click="showModal = true">Show Modal</button>
+<!-- use the modal component, pass in the prop -->
+<modal v-if="showModal" @close="showModal = false">
+  <!--
+    you can use custom content here to overwrite
+    default content
+  -->
+  <h3 slot="header">custom header</h3>
+
+
+
+  <div slot="body">
+
+    <form method="post" accept-charset="UTF-8" id="registration-form">
+      {{ csrfInput() }}
+      <input type="hidden" name="action" value="users/save-user">
+      {{ redirectInput('user/login?verification-required=1') }}
+
+      {% macro errorList(errors) %}
+        {% if errors %}
+          {% for error in errors %}{{ error }}{% endfor %}
+        {% endif %}
+      {% endmacro %}
+
+      {% from _self import errorList %}
+      <div class="my-3 theme-sub-title">
+        Required Fields
+      </div>
+
+
+      <div class="form-group input-group">
+        <input type="text"
+               class="form-control {% if account is defined %}{% if account.getErrors('email') %}is-invalid{% endif %}{% endif %}"
+               placeholder="Email" name="email" title="Account Email" required>
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+        </div>
+        {% if account is defined %}
+          <div class="invalid-feedback">{{ errorList(user.getErrors('email')) }}</div>
+        {% endif %}
+      </div>
+
+      <div class="form-group input-group">
+        <input type="text"
+               class="form-control {% if user is defined %}{% if user.getErrors('username') %}is-invalid{% endif %}{% endif %}"
+               placeholder="Username" name="username" title="Username" required>
+        {% if user is defined %}
+          <div class="invalid-feedback">{{ errorList(user.getErrors('username')) }}</div>
+        {% endif %}
+      </div>
+
+
+      <div class="form-group input-group">
+        <input type="password"
+               class="form-control {% if user is defined %}{% if user.getErrors('password') %}is-invalid{% endif %}{% endif %}"
+               placeholder="Password" name="password" title="Password" required>
+        {% if user is defined %}
+          <div class="invalid-feedback">{{ errorList(user.getErrors('password')) }}</div>
+        {% endif %}
+      </div>
+
+      <div class="my-3 theme-sub-title">
+        Optional Fields
+      </div>
+
+      <div class="form-group input-group">
+        <input class="form-control {% if account is defined %}{% if user.getErrors('firstName') %}is-invalid{% endif %}{% endif %}"
+               type="text" placeholder="First Name" name="firstName" title="First Name">
+        {% if account is defined %}
+          <div class="invalid-feedback">{{ errorList(user.getErrors('firstName')) }}</div>
+        {% endif %}
+      </div>
+
+      <div class="form-group input-group">
+        <input class="form-control {% if user is defined %}{% if user.getErrors('lastName') %}is-invalid{% endif %}{% endif %}"
+               type="text" placeholder="Last Name" name="lastName" title="Last Name">
+        {% if account is defined %}
+          <div class="invalid-feedback">{{ errorList(user.getErrors('lastName')) }}</div>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+
+  <div slot="footer">
+    <button @click="$emit('close')" class="modal-default-button">OK</button>
+    <button @click="" type="submit" class="col-12 btn btn-round btn-small btn-secondary">Register</button>
+  </div>
+</modal>
