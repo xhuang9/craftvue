@@ -1,5 +1,6 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-vue/src/index.scss';
+@import "theme";
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-vue/src/index.scss';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
