@@ -8,6 +8,15 @@ import Vuelidate from "vuelidate";  //https://vuelidate.js.org/#sub-basic-form
 
 Vue.config.productionTip = false;
 
+Vue.use(Vuelidate);
+
+Vue.use(VueAxios, axios);
+
+// Install BootstrapVue
+Vue.use(BootstrapVue);
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin);
+
 new Vue({
   el: "#app",
   delimiters: ["${", "}"],
@@ -23,12 +32,3 @@ new Vue({
     console.log("updated");
   }
 });
-
-Vue.use(Vuelidate);
-
-Vue.use(VueAxios, axios);
-
-// Install BootstrapVue
-Vue.use(BootstrapVue);
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin);
