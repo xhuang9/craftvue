@@ -2,7 +2,7 @@ import Vue from "vue";
 import Components from "./components";
 import "./scss/index.scss";
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-import axios from "axios";
+import Axios from "axios";
 import VueAxios from "vue-axios";
 import Vuelidate from "vuelidate";  //https://vuelidate.js.org/#sub-basic-form
 
@@ -10,7 +10,7 @@ Vue.config.productionTip = false;
 
 Vue.use(Vuelidate);
 
-Vue.use(VueAxios, axios);
+Vue.use(VueAxios, Axios);
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

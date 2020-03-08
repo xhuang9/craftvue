@@ -18,10 +18,4 @@
  */
 
 return [
-    'modules' => [
-        'base' => modules\baseModule\baseModule::class,
-    ],
-    'bootstrap' => [
-        'base',
-    ],
 ];

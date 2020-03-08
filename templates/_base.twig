@@ -1,7 +1,7 @@
 {# Craft Global Value #}
 {% set defaultUrl = getDefaultUrl() %}
 {% set logo = siteSettings.logo.one() %}
-{% set placeHolder = siteSettings.placeHolder.one() %}
+{% set placeHolder = siteSettings.placeHolder.one() | default(logo) %}
 
 <!DOCTYPE html>
 <html lang="en">

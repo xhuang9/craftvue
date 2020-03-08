@@ -25,3 +25,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+# Lock Files
+composer.lock
+package-lock.json
