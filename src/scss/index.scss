@@ -1,6 +1,8 @@
 @import "theme";//define the theme
-@import '~bootstrap/scss/bootstrap';
-@import '~bootstrap-vue/src/index.scss';
+@import "boostrap";//partial load bootstrap css
+//@import '~bootstrap/scss/bootstrap'; // import all
+@import "bootstrap-vue";//partial load bootstrap-vue css
+//@import '~bootstrap-vue/src/index.scss'; // import all
 @import "global";//overwrite some global variables
 
 #app {

@@ -1,9 +1,5 @@
 const path = require("path");
 const ManifestPlugin = require("webpack-manifest-plugin");
-const PurgeCssPlugin = require("purgecss-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const whiteLister = require("purgecss-whitelister");
-const glob = require("glob-all");
 const FileManagerPlugin = require("filemanager-webpack-plugin");
 
 modern = process.env.VUE_CLI_MODERN_MODE;
@@ -13,26 +9,8 @@ config = {
   protocol: "http",
   host: "localhost",
   port: 8080,
-  watchDir: "templates",
-  // Whitelist selectors to stop purgecss from removing them from your CSS
-  // You can pass in whole stylesheets to whitelist everything from thirdparty libs
-  // Accepts string paths, array of strings, globby strings, or array of globby strings:
-  // ['./node_modules/lib1/*.css', './node_modules/lib2/*.scss']
-  purgeCssWhitelist: [],
-  // Whitelist based on a regular expression.
-  // Ex: [/red$/] (selectors ending in 'red' will remain)
-  // https://www.purgecss.com/whitelisting
-  purgeCssWhitelistPatterns: [],
+  watchDir: "templates"
 };
-
-// Custom PurgeCSS extractor for Tailwind that allows special characters in
-// class names.
-// https://github.com/FullHuman/purgecss#extractor
-class TailwindExtractor {
-  static extract(content) {
-    return content.match(/[A-z0-9-:\/]+/g) || [];
-  }
-}
 
 module.exports = {
   runtimeCompiler: true,
@@ -40,7 +18,7 @@ module.exports = {
   outputDir: "web/dist",
   filenameHashing: true,
   css: {
-    sourceMap: true,
+    sourceMap: true
   },
   devServer: {
     https: config.https,
@@ -50,37 +28,20 @@ module.exports = {
     headers: { "Access-Control-Allow-Origin": "*" },
     disableHostCheck: true,
     contentBase: path.join(__dirname, config.watchDir),
-    watchContentBase: true,
+    watchContentBase: true
   },
   configureWebpack: {
     plugins: [
       new ManifestPlugin({
         fileName: modern ? "manifest.json" : "manifest-legacy.json",
-        publicPath: production ? "/dist/" : "/",
-      }),
-      new PurgeCssPlugin({
-        paths: glob.sync([
-          path.join(__dirname, "./templates/**/*.html"),
-          path.join(__dirname, "./templates/**/*.twig"),
-          path.join(__dirname, "./src/**/*.vue"),
-          path.join(__dirname, "./src/**/*.js"),
-        ]),
-        whitelist: whiteLister(config.purgeCssWhitelist),
-        whitelistPatterns: config.purgeCssWhitelistPatterns,
-        extractors: [
-          {
-            extractor: TailwindExtractor,
-            // Specify the file extensions to include when scanning for class names.
-            extensions: ["html", "js", "twig", "vue"],
-          },
-        ],
+        publicPath: production ? "/dist/" : "/"
       }),
       new FileManagerPlugin({
         onEnd: {
           // Delete unnecessary index.html file
-          delete: ["./web/dist/index.html"],
-        },
-      }),
-    ],
-  },
+          delete: ["./web/dist/index.html"]
+        }
+      })
+    ]
+  }
 };

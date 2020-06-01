@@ -1,7 +1,7 @@
 # craft-vue
 This repository is clone from: https://github.com/chasegiunta/craft-vue
 
-Added bootstrap-vue, Purge Css Plugin from original repository, vue-lazyload, vuelidate, Axios
+Added bootstrap-vue, vue-lazyload, partial load bootstrap components and css
 
 All the power of Vue CLI's scaffolding & single file components tailored for a Craft CMS project.
 
@@ -40,11 +40,11 @@ git clone https://github.com/xhuang9/craftvue.git project-folder
 # Update composer
 composer update
 
-# run Craft's setup & install
+# configure your server environment
 cp .env.example .env
 
-# upload the .sql file in the project root folder to your database
-mysql -u root -pyourpassword yourdatabasename < sqlbackup.sql
+# upload the database.sql file in the project root folder to your database, 
+mysql -u root -pyourpassword yourdatabasename < database.sql
 
 # install dependencies
 npm install # yarn
