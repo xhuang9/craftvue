@@ -1,14 +1,8 @@
 @import "theme";//define the theme
 @import "boostrap";//partial load bootstrap css
-//@import '~bootstrap/scss/bootstrap'; // import all
+//@import '~bootstrap/scss/bootstrap'; // import all bootstrap css
 @import "bootstrap-vue";//partial load bootstrap-vue css
-//@import '~bootstrap-vue/src/index.scss'; // import all
+//@import '~bootstrap-vue/src/index.scss'; // import all bootstrap-vue css
 @import "global";//overwrite some global variables
 
-#app {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+//write your customized scss here

@@ -45,6 +45,7 @@ cp .env.example .env
 
 # upload the database.sql file in the project root folder to your database, 
 mysql -u root -pyourpassword yourdatabasename < database.sql
+# this craft install admin user's username is "admin" password is "admin12345"
 
 # install dependencies
 npm install # yarn
