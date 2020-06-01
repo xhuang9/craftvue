@@ -1,1 +1,18 @@
-{% include "_chunks/components/navbar.twig" %}
+<b-navbar class="navbar-main navbar-sticky sticky-top d-flex justify-content-between" variant="dark" text-variant="primary" type="dark">
+    <b-navbar-brand class="py-0" href="{{ url("") }}">
+        <img class="logo" data-src="{{ logo.url }}" src="{{ logo.url }}">
+    </b-navbar-brand>
+    {% include "_chunks/header/navbar.twig" %}
+    <div class="d-flex justify-content-center align-items-center">
+
+    </div>
+</b-navbar>
+
+{# Mobile Nav PopUp #}
+<b-sidebar class="d-lg-none d-block" id="mobile-menu-modal" right backdrop shadow text-variant="primary" bg-variant="dark" header-class="p-4">
+    {% for entry in craft.entries({section:"siteContent"}).all() %}
+        <b-link class="d-block py-4" href="{{ url(entry.uri=="__home__"?"":entry.uri) }}">{{ entry.title }}</b-link>
+    {% endfor %}
+</b-sidebar>
+
+{# include search popup #}

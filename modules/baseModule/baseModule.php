@@ -52,7 +52,6 @@ class baseModule extends yii\base\Module {
 
     protected function callEvents(){
 
-        //register commerce discount as a field in control panel
 
     }
 }

@@ -1,9 +1,9 @@
 {
-  "app.css": "/dist/css/app.9110e2d1.css",
-  "app.js": "/dist/js/app-legacy.619c68a7.js",
-  "app.css.map": "/dist/css/app.9110e2d1.css.map",
-  "app.js.map": "/dist/js/app-legacy.619c68a7.js.map",
-  "chunk-vendors.js": "/dist/js/chunk-vendors-legacy.92a1b629.js",
-  "chunk-vendors.js.map": "/dist/js/chunk-vendors-legacy.92a1b629.js.map",
+  "app.css": "/dist/css/app.fe674930.css",
+  "app.js": "/dist/js/app-legacy.4b0fac44.js",
+  "app.css.map": "/dist/css/app.fe674930.css.map",
+  "app.js.map": "/dist/js/app-legacy.4b0fac44.js.map",
+  "chunk-vendors.js": "/dist/js/chunk-vendors-legacy.07937a63.js",
+  "chunk-vendors.js.map": "/dist/js/chunk-vendors-legacy.07937a63.js.map",
   "index.html": "/dist/index.html"
 }

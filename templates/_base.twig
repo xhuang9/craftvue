@@ -1,6 +1,6 @@
 {# Craft Global Value #}
 {% set defaultUrl = getDefaultUrl() %}
-{% set logo = siteSettings.logo.one() %}
+{% set logo = siteSettings.logo.one() | default(craft.assets.filename("error.jpg").one()) %}
 {% set placeHolder = siteSettings.placeHolder.one() | default(logo) %}
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
     window.currentPage = "{{ craft.app.request.pathInfo }}";
   </script>
 
-  <div id="app">
+  <div id="app" v-lazy-container="{ selector: 'img' }">
 
     {% set info = {
       craftVersion: craft.app.getVersion(),

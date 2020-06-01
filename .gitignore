@@ -27,5 +27,7 @@ yarn-error.log*
 *.sw*
 
 # Lock Files
-composer.lock
-package-lock.json
+/composer.lock
+/package-lock.json
+/web/cpresources/*
+web/assets/img/*
