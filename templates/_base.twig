@@ -1,7 +1,7 @@
 {# Craft Global Value #}
 {% set defaultUrl = getDefaultUrl() %}
-{% set logo = siteSettings.logo.one() | default(craft.assets.filename("error.jpg").one()) %}
-{% set placeHolder = siteSettings.placeHolder.one() | default(logo) %}
+{% set logo = system.logo.one() | default(craft.assets.filename("error.jpg").one()) %}
+{% set placeHolder = system.placeHolder.one() | default(logo) %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,7 @@
   <title>{{ siteName }}</title>
 
   {{ craft.twigpack.includeCssModule("app.css", true) }}
+  <link rel="icon" href="{{ system.favicon.one().url | default(logo.url) }}">
 </head>
 
 <body class="bg-gray">

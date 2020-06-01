@@ -3,15 +3,15 @@ import Components from "./components"; //vue components
 import "./scss/index.scss"; // css file
 
 
-// Install BootstrapVue
+// Install BootstrapVue take around 800kb, not import some of the plugin if you don't need it to speed up.
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
 //Install Axios
-import Axios from "axios";
-import VueAxios from "vue-axios";
-Vue.use(VueAxios, Axios);
+// import Axios from "axios";
+// import VueAxios from "vue-axios";
+// Vue.use(VueAxios, Axios);
 
 //Import vue-lazyload
 import VueLazyload from 'vue-lazyload';
@@ -24,8 +24,8 @@ Vue.use(VueLazyload, {
 });
 
 //Install Vue Validate
-import Vuelidate from "vuelidate";  //https://vuelidate.js.org/#sub-basic-form
-Vue.use(Vuelidate);
+// import Vuelidate from "vuelidate";  //https://vuelidate.js.org/#sub-basic-form
+// Vue.use(Vuelidate);
 
 //vue
 Vue.config.productionTip = false;

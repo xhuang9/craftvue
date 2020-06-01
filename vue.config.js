@@ -1,8 +1,8 @@
 const path = require("path");
 const ManifestPlugin = require("webpack-manifest-plugin");
-const PurgecssPlugin = require("purgecss-webpack-plugin");
+const PurgeCssPlugin = require("purgecss-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const whitelister = require("purgecss-whitelister");
+const whiteLister = require("purgecss-whitelister");
 const glob = require("glob-all");
 const FileManagerPlugin = require("filemanager-webpack-plugin");
 
@@ -18,11 +18,11 @@ config = {
   // You can pass in whole stylesheets to whitelist everything from thirdparty libs
   // Accepts string paths, array of strings, globby strings, or array of globby strings:
   // ['./node_modules/lib1/*.css', './node_modules/lib2/*.scss']
-  purgecssWhitelist: [],
+  purgeCssWhitelist: [],
   // Whitelist based on a regular expression.
   // Ex: [/red$/] (selectors ending in 'red' will remain)
   // https://www.purgecss.com/whitelisting
-  purgecssWhitelistPatterns: [],
+  purgeCssWhitelistPatterns: [],
 };
 
 // Custom PurgeCSS extractor for Tailwind that allows special characters in
@@ -58,15 +58,15 @@ module.exports = {
         fileName: modern ? "manifest.json" : "manifest-legacy.json",
         publicPath: production ? "/dist/" : "/",
       }),
-      new PurgecssPlugin({
+      new PurgeCssPlugin({
         paths: glob.sync([
           path.join(__dirname, "./templates/**/*.html"),
           path.join(__dirname, "./templates/**/*.twig"),
           path.join(__dirname, "./src/**/*.vue"),
           path.join(__dirname, "./src/**/*.js"),
         ]),
-        whitelist: whitelister(config.purgecssWhitelist),
-        whitelistPatterns: config.purgecssWhitelistPatterns,
+        whitelist: whiteLister(config.purgeCssWhitelist),
+        whitelistPatterns: config.purgeCssWhitelistPatterns,
         extractors: [
           {
             extractor: TailwindExtractor,
