@@ -27,8 +27,6 @@ All the power of Vue CLI's scaffolding & single file components tailored for a C
 
 You should fork this repo to create your own opinionated boilerplate for your setup. This template makes no assumptions about pre-processors, template structure, or linting configurations.
 
-I've also created a [fork of this boilerplate](https://github.com/chasegiunta/craft-vue-tailwind) that integrates TailwindCSS & Purgecss.
-
 ## Setup
 
 This boilerplate requires Vue CLI 3 be [installed globally on your machine](https://cli.vuejs.org/guide/installation.html).
@@ -43,9 +41,12 @@ composer update
 # configure your server environment
 cp .env.example .env
 
+# using craft cli to set up security key
+./craft setup/security-key
+
 # upload the database.sql file in the project root folder to your database, 
 mysql -u root -pyourpassword yourdatabasename < database.sql
-# this craft install admin user's username is "admin" password is "admin12345"
+# this database install's admin user: username is "admin", password is "admin12345"
 
 # install dependencies
 npm install # yarn
