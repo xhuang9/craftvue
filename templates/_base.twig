@@ -25,7 +25,7 @@
     window.currentPage = "{{ craft.app.request.pathInfo }}";
   </script>
 
-  <div id="app" v-lazy-container="{ selector: 'img' }">
+  <div id="app" v-lazy-container="{ selector: '[data-src]' }">
 
     {% set info = {
       craftVersion: craft.app.getVersion(),
